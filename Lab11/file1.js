@@ -33,30 +33,36 @@ function printOddNumbers() {
   }
 }
 console.log(`Dãy số lẻ trong khoảng từ 1 - 100 theo thứ tự giảm dần`);
-printOddNumbers();
+// printOddNumbers();
 
 // Tính tổng các số chẵn trong khoảng 1 - n
 function sumOfEvenNumbers(n) {
-  for (i = 1; i <= 100; i+)
+  let tong = 0;
+  // for (i = 0; i <= 100; i += 2) {
+  //   tong += i;
+  // }
 
-  return; // Kết quả
+  // return tong;
+  let i = 0;
+  while (i <= 100) {
+    tong += i;
+
+    i += 2;
+  }
+  return tong;
 }
 
 console.log(`Tổng các số chẵn trong khoảng 1 - 100: ${sumOfEvenNumbers(100)}`);
 
-
-console.log(`Tổng các số chẵn trong khoảng 1 - 100: ${sumOfEvenNumbers(100)}`);
-
-// Tính tổng các số chia hết cho 3 và 5 trong khoảng 1 - n
+// Tính tổng các số chia hết cho cả 3 và 5 trong khoảng 1 - n
 function sumOfNumbersDivisibleBy3And5(n) {
   // Code
-// let sum = 0;
+  // let sum = 0;
 
   // for (let i = 1; i <= n; i++) {
   //   if (i % 15 == 0) sum += i;
   // }
-  
-  
+
   let sum = 0;
   let i = 1;
 
@@ -75,47 +81,51 @@ function sumOfNumbersDivisibleBy3And5(n) {
 console.log(
   `Tổng các số chia hết cho 3 và 5 trong khoảng 1 - 100: ${sumOfNumbersDivisibleBy3And5(
     100
-  )}`);
-
-
-console.log(
-  `Tổng các số chia hết cho 3 và 5 trong khoảng 1 - 100: ${sumOfNumbersDivisibleBy3And5(
-    100
   )}`
 );
 
 // In ra các ước số của một số
 function printDivisorOfNumber(n) {
   // Code
+
+  // for (i = 1; i <= n; i++) {
+  //   if (n % i === 0) {
+  //     console.log(i);
+  //   }
+  // }
+  let i = 1;
+  while (i <= n) {
+    if (n % i === 0) {
+      console.log(i);
+    }
+    i++;
+  }
+  return;
 }
 
 console.log(`Các ước số của 12`);
-printDivisorOfNumber(12);
+// printDivisorOfNumber(12);
 
 // In ra số bảng cửu chương của 1 số
 // 1 x 1 = 1
 // 1 x 2 = 2
 // ...
 function printTimesTableOf(n) {
-  // Code
-  // for (let i = 1; i <= 10; i++) {
-  //   let cuuchuong = n * i;
-  //   console.log(`${n} x ${i} = ${cuuchuong}`);
-  // }
-
-  let i = 1;
-  for (i <= 10) {
+  for (let i = 1; i <= 10; i++) {
     let cuuchuong = n * i;
     console.log(`${n} x ${i} = ${cuuchuong}`);
-    i++;
   }
+
+  // let i = 1;
+  // for (i <= 10) {
+  //   let cuuchuong = n * i;
+  //   console.log(`${n} x ${i} = ${cuuchuong}`);
+  //   i++;
+  // }
 }
 
 console.log(`Bảng cửu chương của 1`);
-
-
-console.log(`Bảng cửu chương của 1`);
-printTimesTableOf(1);
+// printTimesTableOf(5);
 
 // In ra bảng cửu chương từ 1 đến 10
 // 1 x 1 = 1
@@ -125,11 +135,8 @@ printTimesTableOf(1);
 // 2 x 2 = 4
 // ...
 function printTimesTable() {
-  // Code
-  for (let n = 0; n <= 10; n++){
-    for (let i = 1; i <= 10; i++) {
-      console.log('${n}x${i}={n * i}');
-    }
+  for (n = 1; n < 11; n++) {
+    printTimesTableOf(n);
   }
 }
 
@@ -166,3 +173,123 @@ function findLegs() {
   console.log(`Số gà là ${chicken}, số chó là ${dogs}`);
 }
 findLegs();
+
+// Hình 1
+
+// Số hàng, số cột
+
+// ```
+// * * * *
+// * * * *
+// * * * *
+// * * * *
+// * * * *
+// ```
+
+function printPatternLine1(col) {
+  let str = "";
+
+  for (let i = 1; i <= col; i++) {
+    str += "* ";
+  }
+
+  console.log(str);
+}
+
+function printPattern1(row, col) {
+  // lặp theo hàng
+  for (let i = 1; i <= row; i++) {
+    // với mỗi hàng
+    printPatternLine1(col);
+  }
+}
+
+printPattern1(5, 6);
+// Hình 2
+
+// ```
+// * * * *
+// *     *
+// *     *
+// *     *
+// * * * *
+// ```
+
+function printPatternLine2(col) {
+  let str = "";
+
+  for (let i = 1; i <= col; i++) {
+    if (i == 1 || i == col) {
+      str += "* ";
+    } else {
+      str += "  ";
+    }
+  }
+
+  console.log(str);
+}
+
+function printPattern2(row, col) {
+  // Lặp theo hàng
+  for (let i = 1; i <= row; i++) {
+    // Với mỗi 1 hàng
+    // Kiểm tra xem là hàng đầu hay là hàng cuối
+    if (i == 1 || i == row) {
+      printPatternLine1(col);
+    } else {
+      printPatternLine2(col);
+    }
+  }
+}
+
+console.log(`Pattern 2`);
+printPattern2(6, 6);
+
+// Hình 3
+
+// ```
+// *           *
+//   *       *
+//     *   *
+//       *
+//     *   *
+//   *       *
+// *           *
+// ```
+function printPattern3(n) {
+  // lặp theo hàng
+  for (let i = 1; i <= n; i++) {
+    let str = "";
+
+    // lặp theo cột
+    for (let j = 1; j <= n; j++) {
+      if (i == j || j == n - i + 1) {
+        str += "* ";
+      } else {
+        str += "  ";
+      }
+    }
+
+    console.log(str);
+  }
+}
+
+console.log("Pattern 3");
+printPattern3(7);
+
+// Hình 4
+
+// ```
+// *
+// * *
+// * * *
+// * * * *
+// ```
+function printPattern4(n) {
+  for (let i = 1; i <= n; i++) {
+    printPatternLine1(i);
+  }
+}
+
+console.log("Pattern 4");
+printPattern4(5);
